@@ -22,12 +22,12 @@ public class Runner {
         System.out.println(SearchElementAction.binarySearch(sortedArray, 9));
         System.out.println(SearchElementAction.findMinValue(newArray));
         System.out.println(SearchElementAction.findMaxValue(newArray));
-        System.out.println(new Array(SearchSpecialNumbersAction.findPrimeNumbers(newArray)));
+        System.out.println("prime numbers " + new Array(SearchSpecialNumbersAction.findPrimeNumbers(newArray)));
         int[] fibonacciArray = {0, 1, 1, 2, 3, 5, 6, 7, 8, 9, 17, 23, 40, 41, 44, 45, 47, 92, 139};
-        System.out.println(new Array(SearchSpecialNumbersAction.findFibonaccisNumbers(new Array(fibonacciArray))));
+        System.out.println("fibonacci numbers " + new Array(SearchSpecialNumbersAction.findFibonaccisNumbers(new Array(fibonacciArray))));
 
         int[] array1 = {123, 111, 2, 3232, 141, 45, 321};
-        System.out.println(new Array(SearchSpecialNumbersAction.findUniqueNumbers(new Array(array1))));
+        System.out.println("unique digits " + new Array(SearchSpecialNumbersAction.findUniqueNumbers(new Array(array1))));
 
         int[] emptyArray = new int[10];
         System.out.println(new Array(FillArrayAction.fillWithRandom(emptyArray)));

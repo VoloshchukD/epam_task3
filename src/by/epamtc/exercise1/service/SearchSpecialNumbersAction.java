@@ -6,8 +6,9 @@ public class SearchSpecialNumbersAction {
 
     public static int[] findPrimeNumbers(Array array) {
         int[] currentArray = array.getValues();
+        int[] resultArray = new int[currentArray.length];
 
-        int dividersCounter = 0;
+        int dividersCounter;
         int primeNumbersCounter = 0;
 
         for (int i = 1; i < currentArray.length; i++) {
@@ -18,22 +19,17 @@ public class SearchSpecialNumbersAction {
                 }
             }
             if (dividersCounter == 0) {
+                resultArray[primeNumbersCounter] = currentArray[i];
                 primeNumbersCounter++;
-            } else {
-                currentArray[i] = 4;
             }
         }
 
-        int[] resultArray = new int[primeNumbersCounter];
-        int resultArrayIndex = 0;
-        for (int i = 1; i < currentArray.length; i++) {
-            if (currentArray[i] != 4) {
-                resultArray[resultArrayIndex] = currentArray[i];
-                resultArrayIndex++;
-            }
+        int[] formattedResultArray = new int[primeNumbersCounter];
+        for (int j = 0; j < primeNumbersCounter; j++) {
+            formattedResultArray[j] = resultArray[j];
         }
 
-        return resultArray;
+        return formattedResultArray;
     }
 
     public static int[] findFibonaccisNumbers(Array array) {
@@ -46,7 +42,6 @@ public class SearchSpecialNumbersAction {
         int lastAddedIndex1 = -1;
         int lastAddedIndex2 = -1;
         int i = 2;
-        int k = 0;
 
         while (i < currentArray.length) {
             firstNumber = currentArray[i - 2];
@@ -54,18 +49,15 @@ public class SearchSpecialNumbersAction {
             if (firstNumber + secondNumber == currentArray[i]) {
                 if (lastAddedIndex1 != i - 2 && lastAddedIndex2 != i - 2) {
                     findFibonaccisNumbersCounter++;
-                    resultArray[k] = firstNumber;
-                    k++;
+                    resultArray[findFibonaccisNumbersCounter] = firstNumber;
                 }
                 if (lastAddedIndex2 != i - 1) {
                     findFibonaccisNumbersCounter++;
-                    resultArray[k] = secondNumber;
-                    k++;
+                    resultArray[findFibonaccisNumbersCounter] = secondNumber;
                 }
 
                 findFibonaccisNumbersCounter++;
-                resultArray[k] = currentArray[i];
-                k++;
+                resultArray[findFibonaccisNumbersCounter] = currentArray[i];
 
                 lastAddedIndex1 = i - 1;
                 lastAddedIndex2 = i;
@@ -74,25 +66,27 @@ public class SearchSpecialNumbersAction {
             i++;
         }
 
-        int[] formattedresultArray = new int[findFibonaccisNumbersCounter];
+        int[] formattedResultArray = new int[findFibonaccisNumbersCounter];
         for (int j = 0; j < findFibonaccisNumbersCounter; j++) {
-            formattedresultArray[j] = resultArray[j];
+            formattedResultArray[j] = resultArray[j];
         }
 
-        return formattedresultArray;
+        return formattedResultArray;
     }
 
     public static int[] findUniqueNumbers(Array array) {
         int[] currentArray = array.getValues();
+        int[] resultArray = new int[currentArray.length];
 
         int uniqueDigitsNumbersCounter = 0;
         for (int i = 0; i < currentArray.length; i++) {
-            if ( (currentArray[i] >= 100) && (currentArray[i] < 1000) ) {
+            if ((currentArray[i] >= 100) && (currentArray[i] < 1000)) {
                 int digitOne = currentArray[i] / 100;
                 int digitTwo = (currentArray[i] / 10) % 10;
                 int digitThree = currentArray[i] % 10;
                 if (digitOne != digitTwo && digitOne != digitThree &&
                         digitTwo != digitThree) {
+                    resultArray[uniqueDigitsNumbersCounter] = currentArray[i];
                     uniqueDigitsNumbersCounter++;
                 } else {
                     currentArray[i] = 0;
@@ -102,8 +96,12 @@ public class SearchSpecialNumbersAction {
             }
         }
 
-        int[] resultArray = formatArray(currentArray, uniqueDigitsNumbersCounter, 0);
-        return resultArray;
+        int[] formattedResultArray = new int[uniqueDigitsNumbersCounter];
+        for (int j = 0; j < uniqueDigitsNumbersCounter; j++) {
+            formattedResultArray[j] = resultArray[j];
+        }
+
+        return formattedResultArray;
     }
 
     public static int[] formatArray(int[] array, int newArrayLength, int deleteValue) {
