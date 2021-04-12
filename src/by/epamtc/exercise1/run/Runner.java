@@ -1,6 +1,10 @@
 package by.epamtc.exercise1.run;
 
 import by.epamtc.exercise1.entity.Array;
+import by.epamtc.exercise1.exception.InvalidRangeException;
+import by.epamtc.exercise1.exception.NullArrayException;
+import by.epamtc.exercise1.exception.NullValuesException;
+import by.epamtc.exercise1.exception.WrongFileNameException;
 import by.epamtc.exercise1.service.FindArrayElementAction;
 import by.epamtc.exercise1.service.FindSpecialNumbersAction;
 import by.epamtc.exercise1.service.SortArrayAction;
@@ -9,7 +13,8 @@ import by.epamtc.exercise1.util.FillArrayAction;
 import java.io.FileNotFoundException;
 
 public class Runner {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, NullArrayException,
+            NullValuesException, WrongFileNameException, InvalidRangeException {
         int[] emptyArray = new int[12];
         Array customArray = new Array(FillArrayAction.fillWithRandom(emptyArray, -1000, 1000));
 
@@ -27,7 +32,7 @@ public class Runner {
         System.out.println("many elements search");
         System.out.println("prime numbers " + new Array(FindSpecialNumbersAction.findPrimeNumbers(customArray)));
         emptyArray = new int[18];
-        int[] fibonacciArray = FillArrayAction.fillFromFile(emptyArray, "data.txt");
+        int[] fibonacciArray = FillArrayAction.fillFromFile(emptyArray, null);
         System.out.println("fibonacci numbers " + new Array(FindSpecialNumbersAction.findFibonaccisNumbers(
                 new Array(fibonacciArray))));
         emptyArray = new int[4];

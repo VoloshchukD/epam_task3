@@ -1,10 +1,14 @@
 package by.epamtc.exercise1.service;
 
 import by.epamtc.exercise1.entity.Array;
+import by.epamtc.exercise1.exception.NullArrayException;
+import by.epamtc.exercise1.exception.NullValuesException;
 
 public class FindSpecialNumbersAction {
 
-    public static int[] findPrimeNumbers(Array array) {
+    public static int[] findPrimeNumbers(Array array) throws NullArrayException, NullValuesException {
+        if (array == null) throw new NullArrayException("Array entity is not initialized");
+        if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] currentArray = array.getValues();
         int[] resultArray = new int[currentArray.length];
 
@@ -27,7 +31,9 @@ public class FindSpecialNumbersAction {
         return resultArray;
     }
 
-    public static int[] findFibonaccisNumbers(Array array) {
+    public static int[] findFibonaccisNumbers(Array array) throws NullArrayException, NullValuesException {
+        if (array == null) throw new NullArrayException("Array entity is not initialized");
+        if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] currentArray = array.getValues();
         int[] resultArray = new int[currentArray.length];
 

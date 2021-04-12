@@ -1,10 +1,14 @@
 package by.epamtc.exercise1.service;
 
 import by.epamtc.exercise1.entity.Array;
+import by.epamtc.exercise1.exception.NullArrayException;
+import by.epamtc.exercise1.exception.NullValuesException;
 
 public class SortArrayAction {
 
-    public static int[] bubbleSort(Array array) {
+    public static int[] bubbleSort(Array array) throws NullArrayException, NullValuesException {
+        if (array == null) throw new NullArrayException("Array entity is not initialized");
+        if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] resultArray = array.getValues();
         int t;
         for (int i = 0; i < array.getValues().length - 1; i++) {
@@ -19,7 +23,9 @@ public class SortArrayAction {
         return resultArray;
     }
 
-    public static int[] selectSort(Array array) {
+    public static int[] selectSort(Array array) throws NullArrayException, NullValuesException {
+        if (array == null) throw new NullArrayException("Array entity is not initialized");
+        if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] resultArray = array.getValues();
         int minValue = 0;
         int minValueIndex = 0;
@@ -38,7 +44,9 @@ public class SortArrayAction {
         return resultArray;
     }
 
-    public static int[] insertSort(Array array) {
+    public static int[] insertSort(Array array) throws NullArrayException, NullValuesException {
+        if (array == null) throw new NullArrayException("Array entity is not initialized");
+        if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] resultArray = array.getValues();
         for (int i = 1; i < array.getValues().length; i++) {
             int j = i - 1;

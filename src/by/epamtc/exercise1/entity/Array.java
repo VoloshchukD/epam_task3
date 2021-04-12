@@ -1,7 +1,5 @@
 package by.epamtc.exercise1.entity;
 
-import java.util.Arrays;
-
 public class Array {
 
     private int[] values;
