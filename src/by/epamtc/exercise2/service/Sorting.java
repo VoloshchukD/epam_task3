@@ -2,10 +2,10 @@ package by.epamtc.exercise2.service;
 
 public abstract class Sorting extends AbstractArrayAction {
 
-    public abstract int[] findSortValues(int[][] array);
+    public abstract int[] findSortingValues(int[][] array);
 
     private final int[][] sort(int[][] array) {
-        int[] sortingElements = findSortValues(array);
+        int[] sortingElements = findSortingValues(array);
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - 1; j++) {
                 if (sortingElements[j] > sortingElements[j + 1]) {

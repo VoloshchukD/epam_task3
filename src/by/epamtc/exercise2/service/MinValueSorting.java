@@ -3,7 +3,7 @@ package by.epamtc.exercise2.service;
 public class MinValueSorting extends Sorting {
 
     @Override
-    public int[] findSortValues(int[][] array) {
+    public int[] findSortingValues(int[][] array) {
         int[] minValues = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             int minValue = array[i][0];

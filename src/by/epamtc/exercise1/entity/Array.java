@@ -1,5 +1,7 @@
 package by.epamtc.exercise1.entity;
 
+import java.util.Arrays;
+
 public class Array {
 
     private int[] values;
@@ -46,15 +48,17 @@ public class Array {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder(getClass().getName() + "@" +
-                "values=");
-        for (int i = 0; i < this.values.length; i++) {
-            stringBuilder.append("values[");
-            stringBuilder.append(i);
-            stringBuilder.append("]=");
+                "values={ ");
+        final String ELEMENTS_SEPARATOR = ", ";
+        for (int i = 0; i < values.length; i++) {
             stringBuilder.append(values[i]);
-            stringBuilder.append(", ");
+            stringBuilder.append(ELEMENTS_SEPARATOR);
         }
-
+        if (values.length != 0) {
+            stringBuilder.delete(stringBuilder.length() - ELEMENTS_SEPARATOR.length(),
+                    stringBuilder.length());
+        }
+        stringBuilder.append(" }");
         return stringBuilder.toString();
     }
 

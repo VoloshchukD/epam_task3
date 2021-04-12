@@ -3,7 +3,7 @@ package by.epamtc.exercise2.service;
 public class MaxValueSorting extends Sorting {
 
     @Override
-    public int[] findSortValues(int[][] array) {
+    public int[] findSortingValues(int[][] array) {
         int[] maxValues = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             int maxValue = array[i][0];

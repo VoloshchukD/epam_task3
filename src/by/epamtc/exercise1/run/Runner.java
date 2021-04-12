@@ -1,8 +1,8 @@
 package by.epamtc.exercise1.run;
 
 import by.epamtc.exercise1.entity.Array;
-import by.epamtc.exercise1.service.SearchElementAction;
-import by.epamtc.exercise1.service.SearchSpecialNumbersAction;
+import by.epamtc.exercise1.service.FindArrayElementAction;
+import by.epamtc.exercise1.service.FindSpecialNumbersAction;
 import by.epamtc.exercise1.service.SortArrayAction;
 import by.epamtc.exercise1.util.FillArrayAction;
 
@@ -10,29 +10,30 @@ import java.io.FileNotFoundException;
 
 public class Runner {
     public static void main(String[] args) throws FileNotFoundException {
-        int[] array = {4, 10, 9, 2, 3, 7, 1, 5, 6, 8};
-        Array newArray = new Array(array);
+        int[] emptyArray = new int[12];
+        Array customArray = new Array(FillArrayAction.fillWithRandom(emptyArray, -1000, 1000));
 
-        System.out.println(new Array(SortArrayAction.bubbleSort(newArray)));
-        System.out.println(new Array(SortArrayAction.selectSort(newArray)));
-        System.out.println(new Array(SortArrayAction.insertSort(newArray)));
+        System.out.println("sortings");
+        System.out.println(new Array(SortArrayAction.bubbleSort(customArray)));
+        System.out.println(new Array(SortArrayAction.selectSort(customArray)));
+        System.out.println(new Array(SortArrayAction.insertSort(customArray)));
 
-        Array sortedArray = new Array(SortArrayAction.insertSort(newArray));
+        System.out.println("one element search");
+        Array sortedArray = new Array(SortArrayAction.insertSort(customArray));
+        System.out.println(FindArrayElementAction.binarySearch(sortedArray, emptyArray[0]));
+        System.out.println(FindArrayElementAction.findMinValue(customArray));
+        System.out.println(FindArrayElementAction.findMaxValue(customArray));
 
-        System.out.println(SearchElementAction.binarySearch(sortedArray, 9));
-        System.out.println(SearchElementAction.findMinValue(newArray));
-        System.out.println(SearchElementAction.findMaxValue(newArray));
-        System.out.println("prime numbers " + new Array(SearchSpecialNumbersAction.findPrimeNumbers(newArray)));
-        int[] fibonacciArray = {0, 1, 1, 2, 3, 5, 6, 7, 8, 9, 17, 23, 40, 41, 44, 45, 47, 92, 139};
-        System.out.println("fibonacci numbers " + new Array(SearchSpecialNumbersAction.findFibonaccisNumbers(new Array(fibonacciArray))));
-
-        int[] array1 = {123, 111, 2, 3232, 141, 45, 321};
-        System.out.println("unique digits " + new Array(SearchSpecialNumbersAction.findUniqueNumbers(new Array(array1))));
-
-        int[] emptyArray = new int[10];
-        System.out.println(new Array(FillArrayAction.fillWithRandom(emptyArray)));
-        System.out.println(new Array(FillArrayAction.fillFromFile(emptyArray, "data.txt")));
-        System.out.println(new Array(FillArrayAction.fillFromConsole(emptyArray)));
+        System.out.println("many elements search");
+        System.out.println("prime numbers " + new Array(FindSpecialNumbersAction.findPrimeNumbers(customArray)));
+        emptyArray = new int[18];
+        int[] fibonacciArray = FillArrayAction.fillFromFile(emptyArray, "data.txt");
+        System.out.println("fibonacci numbers " + new Array(FindSpecialNumbersAction.findFibonaccisNumbers(
+                new Array(fibonacciArray))));
+        emptyArray = new int[4];
+        emptyArray = FillArrayAction.fillFromConsole(emptyArray);
+        System.out.println("unique digits " + new Array(FindSpecialNumbersAction.findUniqueNumbers(
+                new Array(emptyArray))));
     }
 
 }

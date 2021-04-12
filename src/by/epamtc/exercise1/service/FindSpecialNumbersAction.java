@@ -2,19 +2,18 @@ package by.epamtc.exercise1.service;
 
 import by.epamtc.exercise1.entity.Array;
 
-public class SearchSpecialNumbersAction {
+public class FindSpecialNumbersAction {
 
     public static int[] findPrimeNumbers(Array array) {
         int[] currentArray = array.getValues();
         int[] resultArray = new int[currentArray.length];
 
-        int dividersCounter;
         int primeNumbersCounter = 0;
-
         for (int i = 1; i < currentArray.length; i++) {
-            dividersCounter = 0;
-            for (int j = 2; j < currentArray[i] - 1; j++) {
-                if (currentArray[i] % j == 0) {
+            int dividersCounter = 0;
+            int absoluteValue = Math.abs(currentArray[i]);
+            for (int j = 2; j < absoluteValue - 1; j++) {
+                if (absoluteValue % j == 0) {
                     dividersCounter++;
                 }
             }
@@ -24,12 +23,8 @@ public class SearchSpecialNumbersAction {
             }
         }
 
-        int[] formattedResultArray = new int[primeNumbersCounter];
-        for (int j = 0; j < primeNumbersCounter; j++) {
-            formattedResultArray[j] = resultArray[j];
-        }
-
-        return formattedResultArray;
+        resultArray = deleteEmptyReminder(resultArray, primeNumbersCounter);
+        return resultArray;
     }
 
     public static int[] findFibonaccisNumbers(Array array) {
@@ -48,16 +43,16 @@ public class SearchSpecialNumbersAction {
             secondNumber = currentArray[i - 1];
             if (firstNumber + secondNumber == currentArray[i]) {
                 if (lastAddedIndex1 != i - 2 && lastAddedIndex2 != i - 2) {
-                    findFibonaccisNumbersCounter++;
                     resultArray[findFibonaccisNumbersCounter] = firstNumber;
+                    findFibonaccisNumbersCounter++;
                 }
                 if (lastAddedIndex2 != i - 1) {
-                    findFibonaccisNumbersCounter++;
                     resultArray[findFibonaccisNumbersCounter] = secondNumber;
+                    findFibonaccisNumbersCounter++;
                 }
 
-                findFibonaccisNumbersCounter++;
                 resultArray[findFibonaccisNumbersCounter] = currentArray[i];
+                findFibonaccisNumbersCounter++;
 
                 lastAddedIndex1 = i - 1;
                 lastAddedIndex2 = i;
@@ -66,12 +61,8 @@ public class SearchSpecialNumbersAction {
             i++;
         }
 
-        int[] formattedResultArray = new int[findFibonaccisNumbersCounter];
-        for (int j = 0; j < findFibonaccisNumbersCounter; j++) {
-            formattedResultArray[j] = resultArray[j];
-        }
-
-        return formattedResultArray;
+        resultArray = deleteEmptyReminder(resultArray, findFibonaccisNumbersCounter);
+        return resultArray;
     }
 
     public static int[] findUniqueNumbers(Array array) {
@@ -96,26 +87,16 @@ public class SearchSpecialNumbersAction {
             }
         }
 
-        int[] formattedResultArray = new int[uniqueDigitsNumbersCounter];
-        for (int j = 0; j < uniqueDigitsNumbersCounter; j++) {
-            formattedResultArray[j] = resultArray[j];
-        }
-
-        return formattedResultArray;
+        resultArray = deleteEmptyReminder(resultArray, uniqueDigitsNumbersCounter);
+        return resultArray;
     }
 
-    public static int[] formatArray(int[] array, int newArrayLength, int deleteValue) {
-        int[] resultArray = new int[newArrayLength];
-
-        int resultArrayIndex = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != deleteValue) {
-                resultArray[resultArrayIndex] = array[i];
-                resultArrayIndex++;
-            }
+    public static int[] deleteEmptyReminder(int[] array, int newLength) {
+        int[] formattedResultArray = new int[newLength];
+        for (int j = 0; j < newLength; j++) {
+            formattedResultArray[j] = array[j];
         }
-
-        return resultArray;
+        return formattedResultArray;
     }
 
 }

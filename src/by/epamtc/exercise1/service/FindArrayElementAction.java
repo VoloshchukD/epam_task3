@@ -2,7 +2,7 @@ package by.epamtc.exercise1.service;
 
 import by.epamtc.exercise1.entity.Array;
 
-public class SearchElementAction {
+public class FindArrayElementAction {
 
     public static int binarySearch(Array array, int value) {
         int[] resultArray = array.getValues();
