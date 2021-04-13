@@ -32,7 +32,7 @@ public class Runner {
         System.out.println("many elements search");
         System.out.println("prime numbers " + new Array(FindSpecialNumbersAction.findPrimeNumbers(customArray)));
         emptyArray = new int[18];
-        int[] fibonacciArray = FillArrayAction.fillFromFile(emptyArray, null);
+        int[] fibonacciArray = FillArrayAction.fillFromFile(emptyArray, "data.txt");
         System.out.println("fibonacci numbers " + new Array(FindSpecialNumbersAction.findFibonaccisNumbers(
                 new Array(fibonacciArray))));
         emptyArray = new int[4];

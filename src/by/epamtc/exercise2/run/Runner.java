@@ -1,14 +1,14 @@
 package by.epamtc.exercise2.run;
 
+import by.epamtc.exercise2.exception.NullArrayException;
 import by.epamtc.exercise2.service.MaxValueSorting;
 import by.epamtc.exercise2.service.MinValueSorting;
 import by.epamtc.exercise2.service.Sorting;
 import by.epamtc.exercise2.service.RowSumSorting;
 
 public class Runner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NullArrayException {
         int[][] array = {{1, 4, 6}, {7, 99}, {-1, 9, 4, 3, 5, 8, 15}, {0, 15, 14, 22}};
-
         RowSumSorting rowSumSort = new RowSumSorting();
         testSorting(rowSumSort, array);
 
@@ -19,7 +19,7 @@ public class Runner {
         testSorting(maxValueSort, array);
     }
 
-    public static void testSorting(Sorting sorting, int[][] array) {
+    public static void testSorting(Sorting sorting, int[][] array) throws NullArrayException {
         int[][] result = sorting.sort(array, false);
         System.out.println(sorting.getClass().getName());
         System.out.println("ascending\n" + arrayToString(result) + "\n");

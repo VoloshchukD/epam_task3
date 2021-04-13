@@ -4,6 +4,14 @@ public class Array {
 
     private int[] values;
 
+    public Array() {
+        values = new int[]{ };
+    }
+
+    public Array(int valuesLength) {
+        values = new int[valuesLength];
+    }
+
     public Array(int[] array) {
         values = array.clone();
     }
