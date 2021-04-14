@@ -33,14 +33,16 @@ public class FindArrayElementAction {
         if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] resultArray = array.getValues();
         int minValue = resultArray[0];
+        int minValueIndex = 0;
 
         for (int i = 1; i < array.getValues().length; i++) {
             if (resultArray[i] < minValue) {
                 minValue = resultArray[i];
+                minValueIndex = i;
             }
         }
 
-        return minValue;
+        return minValueIndex;
     }
 
     public static int findMaxValue(Array array) throws NullArrayException, NullValuesException {
@@ -48,14 +50,16 @@ public class FindArrayElementAction {
         if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] resultArray = array.getValues();
         int maxValue = resultArray[0];
+        int maxValueIndex = 0;
 
         for (int i = 1; i < array.getValues().length; i++) {
             if (resultArray[i] > maxValue) {
                 maxValue = resultArray[i];
+                maxValueIndex = i;
             }
         }
 
-        return maxValue;
+        return maxValueIndex;
     }
 
 }

@@ -6,7 +6,7 @@ public abstract class Sorting extends AbstractArrayAction {
 
     public abstract int[] findSortingValues(int[][] array) throws NullArrayException;
 
-    public final int[][] sort(int[][] array, boolean descending) throws NullArrayException {
+    public final void sort(int[][] array, boolean descending) throws NullArrayException {
         if (array == null) throw new NullArrayException("Array is not initialized");
 
         int[] sortingElements = findSortingValues(array);
@@ -23,8 +23,6 @@ public abstract class Sorting extends AbstractArrayAction {
         if (descending) {
             array = toReverseOrder(array);
         }
-
-        return array;
     }
 
 }

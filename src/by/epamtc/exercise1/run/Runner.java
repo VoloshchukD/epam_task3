@@ -19,12 +19,15 @@ public class Runner {
         Array customArray = new Array(FillArrayAction.fillWithRandom(emptyArray, -1000, 1000));
 
         System.out.println("sortings");
-        System.out.println(new Array(SortArrayAction.bubbleSort(customArray)));
-        System.out.println(new Array(SortArrayAction.selectSort(customArray)));
-        System.out.println(new Array(SortArrayAction.insertSort(customArray)));
+        SortArrayAction.bubbleSort(customArray);
+        System.out.println(customArray);
+        SortArrayAction.selectSort(customArray);
+        System.out.println(customArray);
+        SortArrayAction.insertSort(customArray);
+        System.out.println(customArray);
 
         System.out.println("one element search");
-        Array sortedArray = new Array(SortArrayAction.insertSort(customArray));
+        Array sortedArray = customArray;
         System.out.println(FindArrayElementAction.binarySearch(sortedArray, emptyArray[0]));
         System.out.println(FindArrayElementAction.findMinValue(customArray));
         System.out.println(FindArrayElementAction.findMaxValue(customArray));

@@ -20,11 +20,11 @@ public class Runner {
     }
 
     public static void testSorting(Sorting sorting, int[][] array) throws NullArrayException {
-        int[][] result = sorting.sort(array, false);
+        sorting.sort(array, false);
         System.out.println(sorting.getClass().getName());
-        System.out.println("ascending\n" + arrayToString(result) + "\n");
-        result = sorting.sort(array, true);
-        System.out.println("descending\n" + arrayToString(result) + "\n");
+        System.out.println("ascending\n" + arrayToString(array) + "\n");
+        sorting.sort(array, true);
+        System.out.println("descending\n" + arrayToString(array) + "\n");
     }
 
     public static String arrayToString(int[][] array) {

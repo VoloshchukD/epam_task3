@@ -13,14 +13,16 @@ public class FindSpecialNumbersAction {
         int[] resultArray = new int[currentArray.length];
 
         int primeNumbersCounter = 0;
-        for (int i = 1; i < currentArray.length; i++) {
+        for (int i = 0; i < currentArray.length; i++) {
             int dividersCounter = 0;
             int absoluteValue = Math.abs(currentArray[i]);
+
             for (int j = 2; j < absoluteValue - 1; j++) {
                 if (absoluteValue % j == 0) {
                     dividersCounter++;
                 }
             }
+
             if (dividersCounter == 0) {
                 resultArray[primeNumbersCounter] = currentArray[i];
                 primeNumbersCounter++;
@@ -97,7 +99,7 @@ public class FindSpecialNumbersAction {
         return resultArray;
     }
 
-    public static int[] deleteEmptyReminder(int[] array, int newLength) {
+    private static int[] deleteEmptyReminder(int[] array, int newLength) {
         int[] formattedResultArray = new int[newLength];
         for (int j = 0; j < newLength; j++) {
             formattedResultArray[j] = array[j];
