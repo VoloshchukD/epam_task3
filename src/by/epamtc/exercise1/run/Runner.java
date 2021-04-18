@@ -8,7 +8,7 @@ import by.epamtc.exercise1.exception.WrongFileNameException;
 import by.epamtc.exercise1.service.FindArrayElementAction;
 import by.epamtc.exercise1.service.FindSpecialNumbersAction;
 import by.epamtc.exercise1.service.SortArrayAction;
-import by.epamtc.exercise1.util.FillArrayAction;
+import by.epamtc.exercise1.service.FillArrayAction;
 
 import java.io.FileNotFoundException;
 

@@ -1,9 +1,10 @@
-package by.epamtc.exercise1.util;
+package by.epamtc.exercise1.service;
 
 import by.epamtc.exercise1.exception.InvalidRangeException;
 import by.epamtc.exercise1.exception.NullArrayException;
 import by.epamtc.exercise1.exception.NullValuesException;
 import by.epamtc.exercise1.exception.WrongFileNameException;
+import by.epamtc.exercise1.util.DataScanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
