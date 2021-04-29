@@ -2,35 +2,33 @@ package by.epamtc.exercise1.run;
 
 import by.epamtc.exercise1.entity.Array;
 import by.epamtc.exercise1.exception.InvalidRangeException;
-import by.epamtc.exercise1.exception.NullArrayException;
+import by.epamtc.exercise1.exception.NoSuchParameterException;
 import by.epamtc.exercise1.exception.NullValuesException;
 import by.epamtc.exercise1.exception.WrongFileNameException;
-import by.epamtc.exercise1.service.FindArrayElementAction;
 import by.epamtc.exercise1.service.FindSpecialNumbersAction;
-import by.epamtc.exercise1.service.SortArrayAction;
-import by.epamtc.exercise1.service.FillArrayAction;
+import by.epamtc.exercise1.dao.FillArrayAction;
 
 import java.io.FileNotFoundException;
 
 public class Runner {
-    public static void main(String[] args) throws FileNotFoundException, NullArrayException,
+    public static void main(String[] args) throws FileNotFoundException, NoSuchParameterException,
             NullValuesException, WrongFileNameException, InvalidRangeException {
         int[] emptyArray = new int[12];
         Array customArray = new Array(FillArrayAction.fillWithRandom(emptyArray, -1000, 1000));
 
         System.out.println("sortings");
-        SortArrayAction.bubbleSort(customArray);
+        customArray.bubbleSort();
         System.out.println(customArray);
-        SortArrayAction.selectSort(customArray);
+        customArray.selectSort();
         System.out.println(customArray);
-        SortArrayAction.insertSort(customArray);
+        customArray.insertSort();
         System.out.println(customArray);
 
         System.out.println("one element search");
         Array sortedArray = customArray;
-        System.out.println(FindArrayElementAction.binarySearch(sortedArray, emptyArray[0]));
-        System.out.println(FindArrayElementAction.findMinValue(customArray));
-        System.out.println(FindArrayElementAction.findMaxValue(customArray));
+        System.out.println(sortedArray.binarySearch(emptyArray[0]));
+        System.out.println(sortedArray.findMinValue());
+        System.out.println(sortedArray.findMaxValue());
 
         System.out.println("many elements search");
         System.out.println("prime numbers " + new Array(FindSpecialNumbersAction.findPrimeNumbers(customArray)));

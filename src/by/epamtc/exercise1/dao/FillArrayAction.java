@@ -1,7 +1,6 @@
-package by.epamtc.exercise1.service;
+package by.epamtc.exercise1.dao;
 
 import by.epamtc.exercise1.exception.InvalidRangeException;
-import by.epamtc.exercise1.exception.NullArrayException;
 import by.epamtc.exercise1.exception.NullValuesException;
 import by.epamtc.exercise1.exception.WrongFileNameException;
 import by.epamtc.exercise1.util.DataScanner;

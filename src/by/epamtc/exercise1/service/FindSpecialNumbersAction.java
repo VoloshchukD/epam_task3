@@ -1,13 +1,13 @@
 package by.epamtc.exercise1.service;
 
 import by.epamtc.exercise1.entity.Array;
-import by.epamtc.exercise1.exception.NullArrayException;
+import by.epamtc.exercise1.exception.NoSuchParameterException;
 import by.epamtc.exercise1.exception.NullValuesException;
 
 public class FindSpecialNumbersAction {
 
-    public static int[] findPrimeNumbers(Array array) throws NullArrayException, NullValuesException {
-        if (array == null) throw new NullArrayException("Array entity is not initialized");
+    public static int[] findPrimeNumbers(Array array) throws NoSuchParameterException, NullValuesException {
+        if (array == null) throw new NoSuchParameterException("Array parameter is not present");
         if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] currentArray = array.getValues();
         int[] resultArray = new int[currentArray.length];
@@ -33,8 +33,8 @@ public class FindSpecialNumbersAction {
         return resultArray;
     }
 
-    public static int[] findFibonaccisNumbers(Array array) throws NullArrayException, NullValuesException {
-        if (array == null) throw new NullArrayException("Array entity is not initialized");
+    public static int[] findFibonaccisNumbers(Array array) throws NoSuchParameterException, NullValuesException {
+        if (array == null) throw new NoSuchParameterException("Array parameter is not present");
         if (array.getValues() == null) throw new NullValuesException("Array values are not initialized");
         int[] currentArray = array.getValues();
         int[] resultArray = new int[currentArray.length];
@@ -73,7 +73,8 @@ public class FindSpecialNumbersAction {
         return resultArray;
     }
 
-    public static int[] findUniqueNumbers(Array array) {
+    public static int[] findUniqueNumbers(Array array) throws NoSuchParameterException {
+        if (array == null) throw new NoSuchParameterException("Array parameter is not present");
         int[] currentArray = array.getValues();
         int[] resultArray = new int[currentArray.length];
 
